@@ -100,8 +100,9 @@
             // 
             checkBox1.Appearance = Appearance.Button;
             checkBox1.BackColor = Color.SeaShell;
+            checkBox1.Enabled = false;
             checkBox1.Font = new Font("Segoe UI", 28.2F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            checkBox1.Image = Properties.Resources.knopka_vklyucheniya_ruhcxbllsa4e_64__1_;
+            checkBox1.Image = Properties.Resources.knopka_pitaniya_kxqfjqnvluox_64__1_;
             checkBox1.Location = new Point(605, 22);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(64, 64);
@@ -186,6 +187,7 @@
             checkBox2.Size = new Size(64, 64);
             checkBox2.TabIndex = 4;
             checkBox2.UseVisualStyleBackColor = false;
+            checkBox2.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label3
             // 
@@ -247,6 +249,7 @@
             checkBox3.Size = new Size(64, 64);
             checkBox3.TabIndex = 4;
             checkBox3.UseVisualStyleBackColor = false;
+            checkBox3.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label5
             // 
@@ -308,6 +311,7 @@
             checkBox4.Size = new Size(64, 64);
             checkBox4.TabIndex = 4;
             checkBox4.UseVisualStyleBackColor = false;
+            checkBox4.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label7
             // 
@@ -369,6 +373,7 @@
             checkBox5.Size = new Size(64, 64);
             checkBox5.TabIndex = 4;
             checkBox5.UseVisualStyleBackColor = false;
+            checkBox5.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label9
             // 
@@ -430,6 +435,7 @@
             checkBox6.Size = new Size(64, 64);
             checkBox6.TabIndex = 4;
             checkBox6.UseVisualStyleBackColor = false;
+            checkBox6.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label11
             // 
@@ -494,7 +500,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
-            ClientSize = new Size(1115, 785);
+            ClientSize = new Size(1437, 785);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(panel3);

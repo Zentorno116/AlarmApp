@@ -48,9 +48,13 @@ namespace AlarmApp
                                     break;
                                 }
                             }
-                            else if (control is TextBox)
+                            else if (control is TextBox && j == 2)
                             {
                                 ((TextBox)control).Text = line.Replace('`', '\n');
+                            }
+                            else if(control is System.Windows.Forms.CheckBox && j == 3)
+                            {
+                                ((System.Windows.Forms.CheckBox)control).Checked = line=="checked";
                             }
                         }
                         panels[i] = panel;
@@ -91,14 +95,25 @@ namespace AlarmApp
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            var checkbox = (System.Windows.Forms.CheckBox)sender;
+            string[] arrLine = File.ReadAllLines("../../../Resources/Data.txt");
+            int number = int.Parse(checkbox.Name[checkbox.Name.Length - 1] + "");
+            
+            
+            if (checkbox.Checked)
             {
-                checkBox1.Image = Properties.Resources.knopka_pitaniya_kxqfjqnvluox_64__1_;
+                checkbox.Image = Properties.Resources.knopka_pitaniya_kxqfjqnvluox_64__1_;
+                arrLine[(number - 2) * 5 + 3] = "checked";
             }
             else
             {
-                checkBox1.Image = Properties.Resources.knopka_vklyucheniya_ruhcxbllsa4e_64__1_;
+                checkbox.Image = Properties.Resources.knopka_vklyucheniya_ruhcxbllsa4e_64__1_;
+                arrLine[(number-2) * 5 + 3] = "not checked";
             }
+            try
+            {
+                File.WriteAllLines("../../../Resources/Data.txt", arrLine);
+            } catch { }
         }
 
         private void enterPress(object sender, KeyPressEventArgs e)
@@ -122,7 +137,7 @@ namespace AlarmApp
             {
                 string[] arrLine = File.ReadAllLines("../../../Resources/Data.txt");
                 int number = int.Parse(tb.Name[tb.Name.Length - 1] + "");
-                arrLine[(number - 1) * 4 + 2] = tb.Text.Replace('\n', '`');
+                arrLine[(number - 1) * 5 + 2] = tb.Text.Replace('\n', '`');
                 File.WriteAllLines("../../../Resources/Data.txt", arrLine);
             }
         }

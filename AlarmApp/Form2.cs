@@ -60,6 +60,7 @@ namespace AlarmApp
                         writer.WriteLine(time_parts[0] + ":" + time_parts[1]);
                         writer.WriteLine(str.Split(' ')[0]);
                         writer.WriteLine();
+                        writer.WriteLine("checked");
                         writer.WriteLine("next");
                     }
                     panel.Location = new Point(parent.panels[i - 1].Location.X, parent.panels[i - 1].Location.Y + parent.panels[i - 1].Size.Height + 10);
