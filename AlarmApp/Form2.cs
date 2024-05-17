@@ -30,6 +30,11 @@ namespace AlarmApp
             for (int i = 1; i < parent.panels.Count; i++)
             {
                 Panel panel = parent.panels[i];
+                if (i > 4)
+                {
+                    MessageBox.Show("Форма может содержать не более 5 будильников!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
                 if (!panel.Visible)
                 {
                     panel.Visible = true;
@@ -55,13 +60,14 @@ namespace AlarmApp
                         writer.WriteLine(time_parts[0] + ":" + time_parts[1]);
                         writer.WriteLine(str.Split(' ')[0]);
                         writer.WriteLine();
-                        writer.WriteLine();
+                        writer.WriteLine("next");
                     }
                     panel.Location = new Point(parent.panels[i - 1].Location.X, parent.panels[i - 1].Location.Y + parent.panels[i - 1].Size.Height + 10);
                     plusButton.Location = new Point(plusButton.Location.X, plusButton.Location.Y + parent.panels[i - 1].Size.Height + 10);
                     parent.panels[i] = panel;
                     break;
                 }
+                
             }
         }
 

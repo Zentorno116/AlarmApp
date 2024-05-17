@@ -27,7 +27,7 @@ namespace AlarmApp
                 int j = 0;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (line == "")
+                    if (line == "next")
                     {
                         j = 0;
                         i++;
