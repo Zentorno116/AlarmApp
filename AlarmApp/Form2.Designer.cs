@@ -58,6 +58,7 @@
             button2.TabIndex = 1;
             button2.Text = "Отмена";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // dateTimePicker1
             // 
@@ -117,6 +118,7 @@
             Controls.Add(saveButton);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ResumeLayout(false);
         }
 
